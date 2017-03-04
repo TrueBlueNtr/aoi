@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+
+        img {
+            max-width: 100%;
+            height: 222px;
+        }
+
+        img.max {
+            height: auto;
+        }
+
+        #imgBody {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        #imgBody img {
+            height: 100%;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="imgBody" class="hide">
+        <img src="">
+    </div>
+
+</body>
+<script src="./jquery.js"></script>
+<script>
+    // 7 + 14 = 21
+    var imgs = [{"index":1,"url":"https://i.imgsafe.org/a9de498932.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9de27bb33.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9ddee6c02.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9ddfeaff3.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9de1dd3e9.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9de406013.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9de0918f7.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9dde6b16e.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9de11fb82.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9de37ff43.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9de303c06.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9ddf6ecc5.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9da8076b7.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9da985c99.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9da9099c2.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9da5cbee1.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9dabab1a3.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9daaa8adc.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9daa15fc4.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9da670e24.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9da8839b4.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9dab30b9b.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9da6ed0f8.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9da77f579.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9d6c80be7.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9d6d8de5c.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9d6d11b46.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9d70249be.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9d6f1a3db.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9d6e15fd1.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9d729f40d.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9d6e922e1.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9d7166093.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9d6f9e9a6.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9d71e23d5.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9d70bd4ee.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9d4d822eb.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9d4fb7703.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9d51d854e.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9d503f7e2.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9d4e9cce0.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9d4d05fd2.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9d515606e.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9d4becfde.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9d50d0037.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9d4f24e05.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9d4c7be24.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9d4e209ba.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9ccd539e2.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9cca7df6e.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9cc9d5595.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9cc7a4089.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9ccc2ccb1.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9ccca8f25.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9ccb2274f.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9cc8cae75.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9cc7293fd.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9ccba0aee.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9cc84eb67.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9cc9590d6.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9ca54cc34.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9ca4426fe.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9ca738be7.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9ca226711.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9ca4c4bb7.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9ca7b4ec2.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9ca2a392a.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9ca335d0b.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9ca8410ea.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9ca6368fc.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9ca6b0b5b.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9ca3b8621.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9c66e31f5.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9c6890fa7.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9c6814ccf.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9c6a70b89.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9c6d425b5.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9c6b9992a.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9c6af3014.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9c693fabe.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9c6c9bd04.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9c69d0340.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9c67724e5.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9c6c1f9e0.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9c44d08bf.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9c41d9636.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9c43ce534.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9c4456635.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9c47c8e13.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9c473858f.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9c46987a8.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9c4335a8f.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9c45750f3.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9c426c792.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9c484ee67.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9c45f144a.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9c16ef7d7.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9c193cd3f.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9c1ab0f50.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9c1a1432a.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9c1777943.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9c15be82a.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9c1476792.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9c1818004.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9c1525c2f.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9c18b4be4.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9c1658de1.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9c13cfac8.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9b9c93269.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9b9daddae.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9b9aee3af.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9b9c10dfc.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9b980d176.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9b989048d.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9b9e35e86.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9b9d1b400.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9b9a5ba71.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9b991a5d7.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9b9b7234a.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9b99b10c4.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9adee7da4.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9adccd125.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9ade55475.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9adb6728c.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9adc07a37.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9ada30090.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9ad7b6e2d.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9adac8bf8.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9add75a9c.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9ad8f330d.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9ad85a417.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9ad991a3a.jpg"},{"index":1,"url":"https://i.imgsafe.org/a9abce333e.jpg"},{"index":2,"url":"https://i.imgsafe.org/a9ab94bd7b.jpg"},{"index":3,"url":"https://i.imgsafe.org/a9aba6c97e.jpg"},{"index":4,"url":"https://i.imgsafe.org/a9ab9dc6aa.jpg"},{"index":5,"url":"https://i.imgsafe.org/a9abe22169.jpg"},{"index":6,"url":"https://i.imgsafe.org/a9abd9a04a.jpg"},{"index":7,"url":"https://i.imgsafe.org/a9ab7f2811.jpg"},{"index":8,"url":"https://i.imgsafe.org/a9ab75dd92.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9abbb3f60.jpg"},{"index":10,"url":"https://i.imgsafe.org/a9ab892f57.jpg"},{"index":11,"url":"https://i.imgsafe.org/a9abc5268c.jpg"},{"index":12,"url":"https://i.imgsafe.org/a9abb0f183.jpg"},{"index":1,"url":"https://i.imgsafe.org/a99ee22af4.jpg"},{"index":2,"url":"https://i.imgsafe.org/a99f259c0f.jpg"},{"index":3,"url":"https://i.imgsafe.org/a99ef5f524.jpg"},{"index":4,"url":"https://i.imgsafe.org/a99f120835.jpg"},{"index":5,"url":"https://i.imgsafe.org/a99f376746.jpg"},{"index":6,"url":"https://i.imgsafe.org/a99eff1e00.jpg"},{"index":7,"url":"https://i.imgsafe.org/a99f2ec563.jpg"},{"index":8,"url":"https://i.imgsafe.org/a99f098734.jpg"},{"index":9,"url":"https://i.imgsafe.org/a99f412d6a.jpg"},{"index":10,"url":"https://i.imgsafe.org/a99f1bb3c9.jpg"},{"index":11,"url":"https://i.imgsafe.org/a99eebace0.jpg"},{"index":12,"url":"https://i.imgsafe.org/a99f48cfce.jpg"},{"index":1,"url":"https://i.imgsafe.org/a997b95c4c.jpg"},{"index":2,"url":"https://i.imgsafe.org/a997d52e3c.jpg"},{"index":3,"url":"https://i.imgsafe.org/a997cb47e6.jpg"},{"index":4,"url":"https://i.imgsafe.org/a99794faf5.jpg"},{"index":5,"url":"https://i.imgsafe.org/a997deb8d1.jpg"},{"index":6,"url":"https://i.imgsafe.org/a997faeda6.jpg"},{"index":7,"url":"https://i.imgsafe.org/a997b1996b.jpg"},{"index":8,"url":"https://i.imgsafe.org/a997f204a5.jpg"},{"index":9,"url":"https://i.imgsafe.org/a9979e0ca9.jpg"},{"index":10,"url":"https://i.imgsafe.org/a997c1dd0e.jpg"},{"index":11,"url":"https://i.imgsafe.org/a997a6ceba.jpg"},{"index":12,"url":"https://i.imgsafe.org/a997e75a64.jpg"}];
+
+    $(function () {
+        var currentImg;
+
+        $.each(imgs, function (index, element) {
+            var img = document.createElement("img");
+            img.src = element.url;
+            $(document.body).append(img);
+        });
+
+        $("img").on("click", function () {
+            var url = $(this).attr("src");
+            zoom(url);
+            currentImg = $(this);
+        });
+
+        $("#imgBody").on("click", function () {
+            $(this).addClass("hide");
+        });
+
+        function zoom(url) {
+            $("#imgBody img").attr("src", url);
+            $("#imgBody").removeClass("hide");
+        }
+
+        $(document).keydown(function (event) {
+            if (event.which === 37) {
+                var prev = currentImg.prev("img");
+
+                if (prev.length > 0) {
+                    var imgUrl = prev.attr("src");
+                    currentImg = prev;
+                    zoom(imgUrl);
+                }
+            } else if (event.which === 39) {
+                var next = currentImg.next("img");
+
+                if (next > 0) {
+                    var imgUrl = next.attr("src");
+                    currentImg = next;
+                    zoom(imgUrl);
+                }
+            }
+        });
+    });
+</script>
+</html>

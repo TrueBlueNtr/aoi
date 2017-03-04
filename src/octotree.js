@@ -1674,8 +1674,8 @@ function inject() {
     var origin = location.origin;
 
     var baseUrl = $("#include form input[type='text']").val();
-    console.log(baseUrl);
     var i = 0;
+    var imgs = [];
 
     $("img").each(function (index, element) {
         var $element = $(element);
@@ -1685,13 +1685,47 @@ function inject() {
 
         if (width === 160 && height === 222 && name == imgName) {
             var imgUrl = baseUrl + name + "-" + (++i) + ".jpg";
-            console.log(imgUrl);
-
-            $.getJSON("https://imgsafe.org/upload", {
-                "remote_url": imgUrl
-            }, function (result) {
-                console.log("https:" + result.url);
-            });
+            upload(i, imgUrl);
         }
     });
+
+    function upload(index, imgUrl) {
+        $.getJSON("https://imgsafe.org/upload", {
+            "remote_url": imgUrl
+        }, function (result) {
+            var url = "https:" + result.url;
+            console.log(index);
+            console.log(url);
+
+            imgs.push({
+                index: index,
+                url: url
+            });
+
+            if (imgs.length === 12) {
+                sort();
+                console.log(JSON.stringify(imgs));
+            }
+        });
+    }
+
+    function sort() {
+        var sortable = [];
+
+        $.each(imgs, function (i) {
+            sortable.push([ i, imgs[i] ]);
+        });
+
+        sortable.sort(function (a, b) {
+            return a[1].index - b[1].index;
+        });
+
+        imgs = [];
+
+        $.each(sortable, function (i, e) {
+            imgs.push(e[1]);
+        });
+
+        return imgs;
+    }
 }
